@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<div class="row" style="opacity: 0.2%; margin-top:5%; margin-left: 15%">
+
+	<div class="col-md-6">
+		<div class="img-thumbnail">
+			<form method="post" enctype="multipart/form-data" style="align-self:center; margin-left: 15%; margin-top: 5%;">
+				{% csrf_token %}
+				{{ form.as_p }}
+				{{ formset.as_table }} <br> <br>
+				<input type="submit" value="Create" class="btn-btn-outlined-success">
+			</form>
+
+		</div>
+		<br>
+	</div>
+</div>
+
+{% endblock %}

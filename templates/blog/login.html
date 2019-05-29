@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+
+
+
+<div class="row" style="opacity: 0.2%; margin-top:5%; margin-left: 15%">
+
+	<div class="col-md-6">
+		<div class="img-thumbnail">
+			<form method="post" style="text-align:center; margin: 5%;">
+				{% csrf_token %}
+				Username: {{ form.username }} <br>
+				Password: {{ form.password }} <br>
+
+				<small>
+					<a href="{% url 'register' %}">Register</a>
+					<a href="{% url 'password_reset' %}"> | Forgotten Your Password?</a>
+				</small>
+				<br>
+
+				<input type="submit" value="Login" class="btn btn-outline-success">
+				<p>-- OR --</p>
+				<!--
+										<a href="{% url 'social:begin' 'github' %}">
+											<button type="button" name="button" class="btn btn-primary">Github</button> 
+										</a>
+										-->
+				<a href="{% url 'social:begin' 'google-oauth2' %}">
+					<button type="button" name="button" class="btn btn-danger">Google+</button>
+				</a>
+			</form>
+		</div>
+		<br>
+	</div>
+</div>
+
+{% endblock %}

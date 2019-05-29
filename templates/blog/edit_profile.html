@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% block title %} Edit Profile | {{ block.super }} {% endblock %}
+{% block content %}
+
+
+<div class="row" style="opacity: 0.2%; margin-top:5%; margin-left: 15%">
+
+    <div class="col-md-6">
+        <div class="img-thumbnail">
+            <form action="." method="POST" enctype="multipart/form-data" style="align-self:center; margin-left: 15%; margin-top: 5%;">
+                {% csrf_token %}
+                {{ user_form.as_p}}
+                {{ profile_form.as_p}}
+                <input type="submit" value="Save Changes" , class="btn btn-outline-success">
+            </form>
+        </div>
+        <br>
+    </div>
+</div>
+
+
+{% endblock %}
